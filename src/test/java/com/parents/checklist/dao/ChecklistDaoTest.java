@@ -1,23 +1,27 @@
 package com.parents.checklist.dao;
 
+import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertFalse;
+import static junit.framework.Assert.assertNotNull;
+import static junit.framework.Assert.assertNull;
+import static junit.framework.Assert.assertTrue;
+
+import java.io.IOException;
+
+import org.hibernate.PropertyValueException;
+import org.joda.time.DateTime;
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.parents.checklist.model.Checklist;
 import com.parents.checklist.model.Task;
 import com.parents.checklist.model.User;
 import com.parents.dao.AbstractBaseDaoTest;
-import static junit.framework.Assert.*;
-import org.hibernate.PropertyValueException;
-import org.joda.time.DateTime;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.test.context.transaction.BeforeTransaction;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.io.IOException;
-
-public class ChecklistAppDaoTest extends AbstractBaseDaoTest {
+public class ChecklistDaoTest extends AbstractBaseDaoTest {
     @Autowired
     @Qualifier("userDao")
     private UserDaoImpl userDao;
@@ -31,7 +35,7 @@ public class ChecklistAppDaoTest extends AbstractBaseDaoTest {
 
     @Before
     public void insertData() throws IOException {
-        String importSql = getFileContent("ChecklistAppDaoTest.sql");
+        String importSql = getFileContent("ChecklistDaoTest.sql");
         sessionFactory.getCurrentSession().createSQLQuery(importSql).executeUpdate();
     }
 

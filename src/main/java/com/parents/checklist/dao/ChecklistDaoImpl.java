@@ -1,7 +1,8 @@
 package com.parents.checklist.dao;
 
+import com.parents.GenericDaoImpl;
 import com.parents.checklist.model.Checklist;
-import com.parents.dao.GenericDaoImpl;
+
 import org.springframework.stereotype.Repository;
 
 @Repository("checklistDao")

@@ -1,4 +1,4 @@
-package com.parents.model;
+package com.parents;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

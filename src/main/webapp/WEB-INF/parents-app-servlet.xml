@@ -2,35 +2,35 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:util="http://www.springframework.org/schema/util"
        
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context 
         http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/mvc 
-        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd">
+        
+    <import resource="classpath:dataSource.xml"/>
+    <import resource="classpath:dao.xml"/>
+    <import resource="classpath:service.xml"/>
     
-    <mvc:annotation-driven /><!-- 
-    <mvc:default-servlet-handler/> -->
-    
-    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-	  <property name="locations">
-	    <list>
-            <value>properties/${ENVIRONMENT}.properties</value>
-	    </list>
-	  </property>
-	
-	  <property name="ignoreResourceNotFound" value="true" />
-	  <property name="searchSystemEnvironment" value="true" />
-	  <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
-	</bean>
-	
+    <mvc:annotation-driven />
 <!-- 	<mvc:resources mapping="/resources/**" location="/resources/**" /> -->
-
     <context:component-scan base-package="com.parents.checklist.controller"/>
+    
+    <util:properties id="properties" location="classpath:properties/${ENVIRONMENT}.properties" />
+    
+    <context:property-placeholder 
+     	properties-ref="properties"
+    	ignore-resource-not-found="true"
+    	system-properties-mode="ENVIRONMENT"
+    />
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="prefix" value="/WEB-INF/apps/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
 

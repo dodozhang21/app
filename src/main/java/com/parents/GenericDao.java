@@ -1,4 +1,4 @@
-package com.parents.dao;
+package com.parents;
 
 import org.hibernate.criterion.Criterion;
 

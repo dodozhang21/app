@@ -1,6 +1,6 @@
 package com.parents.checklist.model;
 
-import com.parents.model.AbstractBaseModel;
+import com.parents.AbstractBaseModel;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
