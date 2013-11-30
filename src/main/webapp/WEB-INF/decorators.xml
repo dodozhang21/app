@@ -1,0 +1,22 @@
+<decorators defaultdir="/WEB-INF/templates">
+
+	<decorator name="default" page="shell.jsp">
+	    <pattern>/*</pattern>
+	</decorator>
+
+<!--         <decorator name="anotherdecorator" page="decorator2.jsp">
+        <pattern>/subdir/*</pattern>
+    </decorator>
+
+    <decorator name="htmldecorator" page="html.jsp">
+        <pattern>*.html</pattern>
+        <pattern>*.htm</pattern>
+    </decorator>-->
+
+    <decorator name="none">
+        <!-- These files will not get decorated. -->
+        <pattern>/css/*</pattern>
+        <pattern>/js/*</pattern>
+    </decorator>
+
+</decorators>

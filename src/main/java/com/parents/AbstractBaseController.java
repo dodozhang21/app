@@ -11,9 +11,9 @@ public abstract class AbstractBaseController {
 	
 	public static final String USERNAME = "dodo";
 	
-	protected String viewPath = "";
+	protected abstract String getViewPath();
 	
 	protected String getView(String view) {
-		return viewPath + view;
+		return getViewPath() + view;
 	}
 }

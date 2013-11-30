@@ -1,12 +1,11 @@
 package com.parents.checklist.service;
 
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import junit.framework.Assert;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -30,28 +29,41 @@ public class ChecklistServiceTest {
 	@InjectMocks
 	private ChecklistService checklistService = new ChecklistService();
 	
+	private User userWithLists = new User();
+	
 	@Before
     public void mockDao() throws IOException {
-		User user = new User();
 		List<Checklist> checklists = new ArrayList<Checklist>();
 		Checklist checklist1 = new Checklist();
 		Checklist checklist2 = new Checklist();
 		checklists.add(checklist1);
 		checklists.add(checklist2);
-		user.setChecklists(checklists);
-		when(userDao.findByUsername("bubo")).thenReturn(user);
+		userWithLists.setChecklists(checklists);
         
     }
 	
 	@Test
-	public void testGetListsForUser() {
+	public void testGetListsForUserWithList() {
 		// arrange (mocked up)
+		when(userDao.findByUsername("bubo")).thenReturn(userWithLists);
 		
 		// act
 		List<Checklist> results = checklistService.getListsForUser("bubo");
 		
 		// assert
-		Assert.assertEquals(2, results.size());
+		assertEquals(2, results.size());
+	}
+	
+	@Test
+	public void testGetListsForNullUser() {
+		// arrange (mocked up)
+		when(userDao.findByUsername("bubo")).thenReturn(null);
+		
+		// act
+		List<Checklist> results = checklistService.getListsForUser("bubo");
+		
+		// assert
+		assertEquals(0, results.size());
 	}
 
 }

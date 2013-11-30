@@ -1,5 +1,6 @@
 package com.parents.checklist.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,10 @@ public class ChecklistService extends AbstractBaseService {
 	
 	public List<Checklist> getListsForUser(String username) {
 		User user = userDao.findByUsername(username);
+		
+		if(user == null) {
+			return new ArrayList<Checklist>();
+		}
 		
 		return user.getChecklists();
 		
