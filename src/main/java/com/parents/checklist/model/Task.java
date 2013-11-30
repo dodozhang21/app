@@ -1,17 +1,17 @@
 package com.parents.checklist.model;
 
-import com.parents.AbstractBaseModel;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+
+import com.parents.AbstractBaseModel;
 
 @Entity
 @Table(name="parents_checklist_task")
 public class Task extends AbstractBaseModel {
     @Column
     private String description;
-    @Column
+    @Column(nullable=false)
     private boolean completed;
 
     public String getDescription() {

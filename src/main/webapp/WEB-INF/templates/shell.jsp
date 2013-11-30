@@ -1,5 +1,5 @@
-<%@ taglib prefix="decorator" uri="http://www.opensymphony.com/sitemesh/decorator" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="decorator" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +20,7 @@
 	</nav>
 	
 	<section id="upperMain">
-		<decorator:getProperty property="page.upperMain"/>
+		<decorator:getProperty property="div.upper-main"/>
 	</section>
 	
 	<section id="upperRight">
@@ -28,7 +28,7 @@
 	</section>
 	
 	<section id="main">
-		<decorator:getProperty property="page.main"/>
+		<decorator:getProperty property="div.lower-main"/>
 	</section>
 	
 	<section id="right">

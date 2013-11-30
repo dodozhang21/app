@@ -14,7 +14,7 @@
 
     <context:component-scan base-package="com.parents.checklist.dao"/>
 
-    <tx:annotation-driven />
+    <tx:annotation-driven proxy-target-class="true" />
     <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager"
           p:dataSource-ref="dataSource"
           p:sessionFactory-ref="sessionFactory"/>

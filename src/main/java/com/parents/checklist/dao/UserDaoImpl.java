@@ -1,9 +1,9 @@
 package com.parents.checklist.dao;
 
+import org.springframework.stereotype.Repository;
+
 import com.parents.GenericDaoImpl;
 import com.parents.checklist.model.User;
-
-import org.springframework.stereotype.Repository;
 
 @Repository("userDao")
 public class UserDaoImpl extends GenericDaoImpl<User, Long> {

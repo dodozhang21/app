@@ -1,16 +1,22 @@
 package com.parents.checklist.model;
 
 
-import com.parents.AbstractBaseModel;
-import com.sun.istack.internal.NotNull;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
 
-import javax.persistence.*;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.parents.AbstractBaseModel;
+import com.sun.istack.internal.NotNull;
 
 @Entity
 @Table(name="parents_checklist")
@@ -27,7 +33,7 @@ public class Checklist extends AbstractBaseModel {
     @OrderBy("completed")
     private List<Task> tasks = new ArrayList<Task>();
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name="user_id", nullable = false)
     @NotNull
     private User owner;

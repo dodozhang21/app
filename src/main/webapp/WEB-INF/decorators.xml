@@ -13,10 +13,5 @@
         <pattern>*.htm</pattern>
     </decorator>-->
 
-    <decorator name="none">
-        <!-- These files will not get decorated. -->
-        <pattern>/css/*</pattern>
-        <pattern>/js/*</pattern>
-    </decorator>
 
 </decorators>
