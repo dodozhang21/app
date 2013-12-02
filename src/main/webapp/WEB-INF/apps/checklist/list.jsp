@@ -3,7 +3,9 @@
 
 <head>
 	<title>Checklist</title>
-	<script>var name = 'hi';</script>
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/apps/checklist.css" />
+	<script type="text/javascript">var contextRoot = '${pageContext.request.contextPath}';</script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/apps/checklist.js"></script>
 </head>
 <body class="checklist">
 	<div id="upper-main">
@@ -12,7 +14,7 @@
 			<ul class="userLists">
 				<c:forEach items="${userLists}" var="checklist">
 					<li>
-						<a href="detail/${checklist.id}">${checklist.name}</a>
+						<a class="checklist" href="detail/${checklist.id}">${checklist.name}</a>
 						<span class="lastUpdated"><joda:format value="${checklist.lastUpdated}" style="SM" /></span>
 					</li>
 				</c:forEach>
@@ -22,10 +24,18 @@
 		<ul class="otherLists">
 			<c:forEach items="${lists}" var="checklist">
 				<li>
-					<a href="detail/${checklist.id}">${checklist.name}</a>
+					<a class="checklist" href="detail/${checklist.id}">${checklist.name}</a>
 					<span class="lastUpdated"><joda:format value="${checklist.lastUpdated}" style="SM" /></span>
 				</li>
 			</c:forEach>
 		</ul>
+		
+		
+		
+	
+		<div id="dialog-modal" title="Your Username" class="hide">
+			<p>Please enter your username:</p>
+			<p><input id="username" /></p>
+		</div>
 	</div>
 </body>

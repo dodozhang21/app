@@ -5,12 +5,16 @@
 <head>
 <title><decorator:title default="Parents.com" /></title>
 
-<link rel="stylesheet" type="text/css" href="<c:url value="css/app.css"/>" />
+<link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/app.css" />
+ <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+ <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 
 <decorator:head />
 </head>
 
 <body class="shell <decorator:getProperty property="body.class" />">
+	<div id="container">
 	<header>
 		header
 	</header>
@@ -35,5 +39,12 @@
 		right ad
 	</section>
 	
+	</div>
+	
 	<footer>footer</footer>
+	
+	<decorator:body />
+<!-- 	<script src='http://localhost:3000/socket.io/socket.io.js'></script>
+	<script src='http://localhost:3001/browser-sync-client.min.js'></script> -->
 </body>
+</html>

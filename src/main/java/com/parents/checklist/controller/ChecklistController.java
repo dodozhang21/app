@@ -43,8 +43,6 @@ public class ChecklistController extends AbstractBaseController {
     	List<Checklist> results = checklistService.getListsForUser(USERNAME); // hard coded for now; but should get it from elsewhere
         request.setAttribute("lists", results);
         
-        request.setAttribute("hello", "world");
-        
         return getView("list");
     }
     
@@ -66,7 +64,7 @@ public class ChecklistController extends AbstractBaseController {
     public @ResponseBody Boolean getSessionUser(HttpServletRequest request, HttpServletResponse response) {
     	User sessionUser = getUserInSession("", request);
     	if(sessionUser == null) {
-    		response.setStatus(HttpServletResponse.SC_NO_CONTENT);
+    		response.setStatus(HttpServletResponse.SC_NOT_FOUND);
     		return null;
     	} else {
     		return Boolean.TRUE;
