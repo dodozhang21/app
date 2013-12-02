@@ -3,10 +3,25 @@
 $width: 900px;
 
 body {
-	font-family: Georgia, serif;
-	font-size: 18px;
+	@include font-style;
+	color: $gray;
 }
-
+a {
+	color: $links_color;
+	&:hover {
+		color: $links-color-hover;
+	}
+	&:visited {
+		color: $links-color-visited;
+	}
+}
+input {
+	font-size: 1.2em;
+}
+h1, h2 {
+	font-family: $serif;
+	color: $green;
+}
 #container {
 	width: $width;
 	margin: 0 auto;
@@ -20,7 +35,7 @@ header {
 
 nav {
 	height: 50px;
-	background: url('http://placehold.it/900x50') no-repeat;
+	background-color: #ddd;
 }
 
 #upperMain,

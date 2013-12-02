@@ -9,7 +9,7 @@ public abstract class AbstractBaseController {
 	@Autowired
 	private UserDaoImpl userDao;
 	
-	public static final String USERNAME = "dodo";
+	public static final String USERNAME = "admin";
 	
 	protected abstract String getViewPath();
 	

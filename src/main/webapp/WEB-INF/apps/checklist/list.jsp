@@ -14,7 +14,7 @@
 			<ul class="userLists">
 				<c:forEach items="${userLists}" var="checklist">
 					<li>
-						<a class="checklist" href="detail/${checklist.id}">${checklist.name}</a>
+						<a class="checklist" href="list/${checklist.id}">${checklist.name}</a>
 						<span class="lastUpdated"><joda:format value="${checklist.lastUpdated}" style="SM" /></span>
 					</li>
 				</c:forEach>
@@ -24,7 +24,7 @@
 		<ul class="otherLists">
 			<c:forEach items="${lists}" var="checklist">
 				<li>
-					<a class="checklist" href="detail/${checklist.id}">${checklist.name}</a>
+					<a class="checklist" href="list/${checklist.id}">${checklist.name}</a>
 					<span class="lastUpdated"><joda:format value="${checklist.lastUpdated}" style="SM" /></span>
 				</li>
 			</c:forEach>

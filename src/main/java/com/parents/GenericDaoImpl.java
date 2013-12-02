@@ -1,16 +1,16 @@
 package com.parents;
 
 
+import java.io.Serializable;
+import java.lang.reflect.ParameterizedType;
+import java.util.List;
+
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Example;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import java.io.Serializable;
-import java.lang.reflect.ParameterizedType;
-import java.util.List;
 
 public abstract class GenericDaoImpl<T, ID extends Serializable> implements GenericDao<T,ID> {
     private Class<T> persistentClass;
@@ -84,4 +84,9 @@ public abstract class GenericDaoImpl<T, ID extends Serializable> implements Gene
     public void clear() {
         getSession().clear();
     }
+    
+    public void refresh(T entity) {
+    	getSession().refresh(entity);
+    }
+   
 }

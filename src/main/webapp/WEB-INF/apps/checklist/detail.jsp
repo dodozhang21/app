@@ -11,15 +11,19 @@
 <body class="checklist detail">
 	<div id="upper-main">
 		<h2>${checklist.name}</h2>
+		
+		<% // spring form %>
 		<form:form modelAttribute="checklist" method="POST" cssClass="checklist">
+		
 			<form:input path="name" cssClass="name" /> <input type="submit" class="rename" value="Rename" />
 			<input type="hidden" id="nextIndex" value="${fn:length(checklist.tasks)}"/>
 			
 			<ul>
 			<c:forEach items="${checklist.tasks}"  var="task" varStatus="status">
 			
-				<li class="${task.completed ? 'completed' : 'uncompleted'}">
-					<form:checkbox path="tasks[${status.index}].completed" label="${task.description}"  />
+				<li class="${task.completed ? 'completed' : ''}">
+					${task.description}
+					<form:checkbox path="tasks[${status.index}].completed" />
 					<form:hidden path="tasks[${status.index}].description" value="${task.description}" />
 				</li>
 				

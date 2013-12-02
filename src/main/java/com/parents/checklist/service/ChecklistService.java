@@ -52,4 +52,8 @@ public class ChecklistService extends AbstractBaseService {
 	public void saveChecklist(Checklist checklist) {
 		checklistDao.save(checklist);
 	}
+	
+	public void refreshChecklist(Checklist checklist) {
+		checklistDao.refresh(checklist);
+	}
 }

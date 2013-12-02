@@ -8,12 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
-import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,30 +46,20 @@ public class ChecklistController extends AbstractBaseController {
         return getView("list");
     }
     
-    @RequestMapping(value="/detail/{listId}", method=RequestMethod.GET)
-    public String getChecklist(@PathVariable Long listId, 
-    		@ModelAttribute Checklist checklist,
-    		Model model) {
+    @RequestMapping(value="/list/{listId}", method=RequestMethod.GET)
+    public String getChecklist(HttpServletRequest request,
+    		@PathVariable Long listId, 
+    		@ModelAttribute Checklist checklist) {
     	checklist = checklistService.getChecklistById(listId);
     	
-    	model.addAttribute("checklist", checklist);
+    	request.getSession().setAttribute("checklist", checklist);
     	
-    	return getView("detail");
+    	// redirect to form controller
+    	LOG.info("redirect to form controller");
+    	return "redirect:../detail/" + checklist.getId();
     }
     
-    @RequestMapping(value="/detail/{listId}", method=RequestMethod.POST)
-    public String saveCheckList(HttpServletRequest request,
-    		@ModelAttribute Checklist checklist,
-    		BindingResult bindingResult,
-    		Model model) {
-    	User sessionUser = getUserInSession("", request);
-    	checklist.setLastUpdated(new DateTime());
-    	checklist.setOwner(sessionUser);
-    	
-    	checklistService.saveChecklist(checklist);
-    	
-    	return getView("detail");
-    }
+    
     
     /********* SERVICE PORTION **********/
     @RequestMapping("/user/{username}")
