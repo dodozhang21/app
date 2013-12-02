@@ -1,5 +1,8 @@
 package com.parents.dao;
 
+import java.io.File;
+import java.io.IOException;
+
 import org.apache.commons.io.FileUtils;
 import org.hibernate.SessionFactory;
 import org.junit.Rule;
@@ -9,12 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.io.File;
-import java.io.IOException;
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/test-dao-layer.xml")
-public class AbstractBaseDaoTest {
+public abstract class AbstractBaseDaoTest {
     @Rule
     public ExpectedException expectedEx = ExpectedException.none();
 

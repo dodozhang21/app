@@ -1,14 +1,9 @@
 package com.parents.checklist.dao;
 
-import static junit.framework.Assert.assertEquals;
-import static junit.framework.Assert.assertFalse;
-import static junit.framework.Assert.assertNotNull;
-import static junit.framework.Assert.assertNull;
-import static junit.framework.Assert.assertTrue;
+import static junit.framework.Assert.*;
 
 import java.io.IOException;
 
-import org.hibernate.PropertyValueException;
 import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;
@@ -83,21 +78,6 @@ public class ChecklistDaoTest extends AbstractBaseDaoTest {
 
         assertNotNull(checklist.getId());
 
-    }
-
-    @Test
-    @Transactional
-    public void testCreateChecklistWithNoUser() {
-        // expect exceptions (junit enforces you to put this at the beginning, lame :/)
-        expectedEx.expect(PropertyValueException.class);
-        expectedEx.expectMessage("not-null property references a null or transient value: com.parents.checklist.model.Checklist.owner");
-
-        // arrange
-        Checklist emptyChecklist = new Checklist();
-        emptyChecklist.setLastUpdated(new DateTime("2013-11-22"));
-
-        // act
-        checklistDao.save(emptyChecklist);
     }
 
     @Test
