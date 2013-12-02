@@ -1,29 +1,5 @@
 @import 'compass';
-
-// Color palette */
-$dark-pink: #ef005b;
-$teal: #00b9a4;
-$green: #8fc357; //rgb(143,195,90)
-$dark-blue: #0091c2;
-$dark-gray: #666;
-$gray: #999;
-$darkest-blue: #008bb4;
-$light-blue: #b2deed;  //rgb(178,222,237)
-$light-pink: #f9c8d3;  //rgb(249,200,211)
-$dark-tan: #d9d7cf;
-$light-tan: #ebeae6;
-$light-gray: #faf9f8;
-$white: #fff;
-$black: #000;
-$yellow:  #e6ce56;
-$bubble-gray:  #ccc;
-$bubble-pink:  #f6aaba;
-$bubble-green:  $green;
-$bubble-teal:  #17b09d;
-$bubble-yellow:  $yellow;
-$reg-orange: #FF9200;
-$reg-light-orange: #FEDCAB;
-$logo-red: #ED135C;
+@import 'colors';
 
 // font variables
 $serif: Georgia, 'Times New Roman', Times, serif;

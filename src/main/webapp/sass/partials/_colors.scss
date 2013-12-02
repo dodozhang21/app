@@ -1,0 +1,102 @@
+// Color palette */
+$dark-pink: #ef005b;
+$teal: #00b9a4;
+$green: #8fc357; //rgb(143,195,90)
+$dark-blue: #0091c2;
+$dark-gray: #666;
+$gray: #999;
+$darkest-blue: #008bb4;
+$light-blue: #b2deed;  //rgb(178,222,237)
+$light-pink: #f9c8d3;  //rgb(249,200,211)
+$dark-tan: #d9d7cf;
+$light-tan: #ebeae6;
+$light-gray: #faf9f8;
+$white: #fff;
+$black: #000;
+$yellow:  #e6ce56;
+$bubble-gray:  #ccc;
+$bubble-pink:  #f6aaba;
+$bubble-green:  $green;
+$bubble-teal:  #17b09d;
+$bubble-yellow:  $yellow;
+$reg-orange: #FF9200;
+$reg-light-orange: #FEDCAB;
+$logo-red: #ED135C;
+
+$halloween-orange: #ff9801;
+$thanksgiving-red: #d10051;
+$christmas-green: #128c7f;
+$light-green: lighten($green, 40%);
+$light-yellow: #FFF9DD;//#FFF9DD
+$lighter-pink: #FBCCDE;
+
+
+$page-bg: $white;
+$nav-bg: $green;
+$aside-box-bg: $light-tan;
+$content-box-bg: $light-gray;
+$content-box-dark-bg: $darkest-blue;
+$supra-nav-bg: $light-gray;
+$banner-ad-bg: $light-gray;
+
+// Text Colors */
+$text-color: $dark-gray;
+$text-light-color: $gray;
+$headings-color: $teal;
+$headings-alt-color: $green;
+$text-highlight: $dark-pink;
+
+// Links Colors */
+$links-color: $dark-blue;
+$links-color-hover: $dark-blue;
+$links-color-visited: #519ab4;
+
+// Nav Colors */
+$nav-links-color: $white;
+$nav-links-active-color: lighten($yellow, 20%);
+$nav-hover-bg: $light-tan;
+$nav-sub-bg: $light-tan;
+$nav-sub-border-color: $green;
+$nav-sub-sponsored-bg: $dark-tan;
+$nav-sub-links-color: $dark-blue;
+$nav-sub-headings-color: $green;
+
+// These are for rough shell debugging purposes and will be removed
+$shell-block-light: $light-tan;
+$shell-block-medium: $gray;
+$shell-block-dark: $dark-gray;
+
+// default border color
+$border-color: $light-pink;
+$border-alt-color: $light-blue;
+//$border-aside-alt-color: darken($border-alt-color, 15%);
+$border-aside-box-alt-color: $light-blue;
+
+// button color
+$button-color: $dark-blue;
+$button-text-color: $white;
+$button-alt-color: $light-blue;
+$button-alt-text-color: $dark-blue;
+
+// dark content boxes colors
+$content-box-dark-text: $white;
+$content-box-dark-headings: $white;
+$content-box-dark-headings-alt: $light-blue;
+$content-box-dark-links: $white;
+$content-box-dark-button-color: $button-alt-color;
+$content-box-dark-button-text-color: $button-alt-text-color;
+$content-box-dark-offset-bg: $green;
+$content-box-dark-offset-text: $darkest-blue;
+$content-box-dark-offset-links: $white;
+
+// speech bubble colors
+$speech-bubble-1:  $bubble-gray;
+$speech-bubble-2:  $bubble-pink;
+$speech-bubble-3:  $bubble-green;
+$speech-bubble-4:  $bubble-teal;
+$speech-bubble-5:  $bubble-yellow;
+
+// flag color
+$flag-color: #2fa8a2;
+
+
