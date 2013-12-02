@@ -10,6 +10,9 @@
 </head>
 <body class="checklist detail">
 	<div id="upper-main">
+		<div class="social">
+			<a href="../print/${checklist.id}" class="print">Print</a>
+		</div>
 		<h2>${checklist.name}</h2>
 		
 		<% // spring form %>
@@ -26,7 +29,6 @@
 				<li class="${task.completed ? 'completed' : ''}">
 					${task.description}
 					<form:checkbox path="tasks[${status.index}].completed" />
-					<form:hidden path="tasks[${status.index}].description" value="${task.description}" />
 				</li>
 				
 			</c:forEach>

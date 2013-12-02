@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -51,6 +52,18 @@ public class ChecklistController extends ChecklistBaseController {
     	LOG.info("redirect to form controller");
     	return "redirect:../detail/" + checklist.getId();
     }
+    
+    @RequestMapping(value="/print/{listId}", method=RequestMethod.GET)
+    public String printChecklist(HttpServletRequest request,
+    		@PathVariable Long listId,
+    		Model model) {
+    	Checklist checklist = checklistService.getChecklistById(listId);
+    	
+    	model.addAttribute("checklist", checklist);
+    	
+    	return getView("print");
+    }
+    
     
     
     

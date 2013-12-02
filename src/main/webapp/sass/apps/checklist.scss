@@ -92,3 +92,19 @@ a.back {
 .saveWrapper {
 	margin: 1em;
 }
+
+.social {
+	margin-top: 1em;
+	padding: .5em;
+	border: 1px solid $light-blue;
+	background-color: $light-tan;
+	border-width: 1px 0;
+	font-size: .9em;
+}
+
+.print {
+	#checklist ul li {
+		color: #000;
+		cursor: default;
+	}
+}
