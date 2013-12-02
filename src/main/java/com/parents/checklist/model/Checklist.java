@@ -4,6 +4,7 @@ package com.parents.checklist.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -12,6 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
 
@@ -28,9 +31,10 @@ public class Checklist extends AbstractBaseModel {
     @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
     private DateTime lastUpdated;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name="checklist_id", nullable = false)
     @OrderBy("completed")
+    @LazyCollection(LazyCollectionOption.FALSE)
     private List<Task> tasks = new ArrayList<Task>();
 
     @ManyToOne

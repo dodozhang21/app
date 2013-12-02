@@ -6,11 +6,12 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 import org.hibernate.annotations.NaturalId;
 
 import com.parents.AbstractBaseModel;
@@ -22,8 +23,9 @@ public class User extends AbstractBaseModel {
     @NaturalId
     private String username;
     // mappedBy is the inverse of the bidirectional relationship, needs review on what that means
-    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
     @OrderBy("last_updated desc")
+    @LazyCollection(LazyCollectionOption.FALSE)
     private List<Checklist> checklists = new ArrayList<Checklist>();
 
 

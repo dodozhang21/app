@@ -1,7 +1,12 @@
 var ajaxUrl = contextRoot + "/checklist/user/";
 
 $(document).ready(function() {
-	isUser();
+	var body = $('body');
+	if($(body).hasClass('lists')) {
+		isUser();
+	} else if($(body).hasClass('detail')) {
+		
+	}
 });
 
 function isUser() {

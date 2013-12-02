@@ -48,4 +48,8 @@ public class ChecklistService extends AbstractBaseService {
 		
 		return user;
 	}
+
+	public void saveChecklist(Checklist checklist) {
+		checklistDao.save(checklist);
+	}
 }

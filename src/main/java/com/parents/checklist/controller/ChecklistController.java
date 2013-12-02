@@ -8,9 +8,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
+import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -48,8 +51,25 @@ public class ChecklistController extends AbstractBaseController {
     
     @RequestMapping(value="/detail/{listId}", method=RequestMethod.GET)
     public String getChecklist(@PathVariable Long listId, 
-    		@ModelAttribute Checklist checklist) {
+    		@ModelAttribute Checklist checklist,
+    		Model model) {
     	checklist = checklistService.getChecklistById(listId);
+    	
+    	model.addAttribute("checklist", checklist);
+    	
+    	return getView("detail");
+    }
+    
+    @RequestMapping(value="/detail/{listId}", method=RequestMethod.POST)
+    public String saveCheckList(HttpServletRequest request,
+    		@ModelAttribute Checklist checklist,
+    		BindingResult bindingResult,
+    		Model model) {
+    	User sessionUser = getUserInSession("", request);
+    	checklist.setLastUpdated(new DateTime());
+    	checklist.setOwner(sessionUser);
+    	
+    	checklistService.saveChecklist(checklist);
     	
     	return getView("detail");
     }

@@ -7,7 +7,7 @@
 	<script type="text/javascript">var contextRoot = '${pageContext.request.contextPath}';</script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/apps/checklist.js"></script>
 </head>
-<body class="checklist">
+<body class="checklist lists">
 	<div id="upper-main">
 		<c:if test="${!empty userLists}">
 			<h2 class="userLists">My Lists</h2>
