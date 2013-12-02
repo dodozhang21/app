@@ -16,6 +16,8 @@
 		<form:form modelAttribute="checklist" method="POST" cssClass="checklist">
 		
 			<form:input path="name" cssClass="name" /> <input type="submit" class="rename" value="Rename" />
+			<form:errors path="name" cssClass="error" />
+			
 			<input type="hidden" id="nextIndex" value="${fn:length(checklist.tasks)}"/>
 			
 			<ul>

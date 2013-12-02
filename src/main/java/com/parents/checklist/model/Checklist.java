@@ -16,6 +16,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 import org.hibernate.annotations.Type;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.joda.time.DateTime;
 
 import com.parents.AbstractBaseModel;
@@ -25,6 +26,8 @@ import com.sun.istack.internal.NotNull;
 @Table(name="parents_checklist")
 public class Checklist extends AbstractBaseModel {
     @Column
+    @NotNull
+    @NotEmpty(message="Name is required.")
     private String name;
 
     @Column
