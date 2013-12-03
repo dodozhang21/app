@@ -4,14 +4,15 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import com.parents.AbstractBaseModel;
-import com.sun.istack.internal.NotNull;
 
 @Entity
 @Table(name="parents_checklist_task")
 public class Task extends AbstractBaseModel {
-    @Column
-    @NotNull
+    @Column(nullable=false)
+    @NotEmpty
     private String description;
     @Column(nullable=false)
     private boolean completed;

@@ -48,6 +48,24 @@ module.exports = function(grunt) {
 		dest: 'C:/xampp/htdocs/work/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/app/',
 		filter: 'isFile',
 	  },
+	},
+	bower: {
+		install: {
+			options: {
+				targetDir: 'js/lib',
+				cleanTargetDir: true,
+				bowerOptions: {production: false}
+			}
+		}
+	},
+	jasmine: {
+		appTests : {
+			src: 'js/apps/*.js',
+			options: {
+				specs: 'js/spec/**/*Spec.js',
+				//helpers: 'js/lib/*.js'
+			}
+		}
 	}
   });
 
@@ -59,9 +77,12 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-browser-sync');
 	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-bower-task');
+	grunt.loadNpmTasks('grunt-contrib-jasmine');
 	
 	//grunt.registerTask('test', ['jshint', 'qunit']);
 	
-	grunt.registerTask('default', ['clean', 'compass', 'browser_sync', 'watch']);
+	grunt.registerTask('local', ['clean', 'jasmine', 'compass', 'browser_sync', 'watch']);
+	grunt.registerTask('default', ['clean', 'jasmine', 'compass']);
 
 };

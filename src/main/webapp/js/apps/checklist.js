@@ -1,15 +1,3 @@
-var ajaxUrl = contextRoot + "/checklist/user/";
-
-$(document).ready(function() {
-	var body = $('body');
-	if($(body).hasClass('lists')) {
-		isUser();
-	} else if($(body).hasClass('detail')) {
-		addTask();
-		toggleCompleted();
-	}
-});
-
 function toggleCompleted() {
 	$('#checklist ul li').click(function(e) {
 		$(this).toggleClass('completed');
@@ -31,6 +19,7 @@ function addTask() {
 		}
 	});
 }
+
 function addTaskToList() {
 	var newTaskInput = $('#newTask');
 	var newTask = jQuery.trim($(newTaskInput).val());
@@ -56,6 +45,7 @@ function addTaskToList() {
 		return true;
 	}
 }
+
 function isUser() {
 	$.get(ajaxUrl)
 		.done(function() {
@@ -124,3 +114,19 @@ function getUserInput() {
 		}
 	 });
 }
+
+
+function Checklist(contextRoot) {
+	window.ajaxUrl = contextRoot + "/checklist/user/";
+
+
+	var body = $('body');
+	if($(body).hasClass('lists')) {
+		isUser();
+	} else if($(body).hasClass('detail')) {
+		addTask();
+		toggleCompleted();
+	}
+}
+
+//Checklist(contextRoot);

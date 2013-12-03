@@ -38,4 +38,7 @@
 			<p><input id="username" /></p>
 		</div>
 	</div>
+	
+	
+	<script type="text/javascript">Checklist(contextRoot);</script>
 </body>

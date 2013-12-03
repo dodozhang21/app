@@ -1,0 +1,16 @@
+Running "clean:0" (clean) task
+
+Running "jasmine:appTests" (jasmine) task
+Testing jasmine specs via phantom
+.
+1 spec in 0.003s.
+>> 0 failures
+
+Running "compass:dist" (compass) task
+directory css/ 
+directory css/apps/ 
+   create css/app.css (1.034s)
+   create css/apps/checklist.css (0.304s)
+Compilation took 1.342s
+
+Done, without errors.

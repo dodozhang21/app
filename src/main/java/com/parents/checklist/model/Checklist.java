@@ -20,13 +20,11 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.joda.time.DateTime;
 
 import com.parents.AbstractBaseModel;
-import com.sun.istack.internal.NotNull;
 
 @Entity
 @Table(name="parents_checklist")
 public class Checklist extends AbstractBaseModel {
-    @Column
-    @NotNull
+    @Column(nullable=false)
     @NotEmpty(message="Name is required.")
     private String name;
 
@@ -42,7 +40,6 @@ public class Checklist extends AbstractBaseModel {
 
     @ManyToOne
     @JoinColumn(name="user_id", nullable = false)
-    @NotNull
     private User owner;
 
     public String getName() {

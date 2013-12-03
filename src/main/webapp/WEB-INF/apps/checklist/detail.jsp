@@ -44,4 +44,6 @@
 		<a href="${pageContext.request.contextPath}/checklist/" class="back">Back</a>
 
 	</div>
+	
+	<script type="text/javascript">Checklist(contextRoot);</script>
 </body>
